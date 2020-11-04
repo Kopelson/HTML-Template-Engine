@@ -1,23 +1,21 @@
 {
-    "name": "HTML-Template-Engine",
-    "version": "1.0.0",
-    "description": "OOP and testing",
-    "main": "app.js",
-    "directories": {
-      "lib": "lib",
-      "test": "test"
-    },
-    "scripts": {
-      "test": "jest --verbose test/*"
-    },
-    
-    "author": "Kenneth Kopelson",
-    "license": "ISC",
-    "dependencies": {
-      "inquirer": "^6.3.1"
-    },
-    "devDependencies": {
-      "jest": "^24.8.0"
-    }
+  "name": "HTML-Template-Engine",
+  "version": "1.0.0",
+  "description": "OOP and testing",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "author": "Kenneth Kopelson",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
-  
+}
