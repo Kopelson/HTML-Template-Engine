@@ -13,23 +13,81 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+const teamArr = [];
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
+function addEmployee(){
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "What kind of employee would you like to add",
+                name: "employee",
+                choices: ["Manager", "Engineer", "Intern"]
+            },
+            {
+                type: "input",
+                message: "What is the name of the employee?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is the ID of the employee?",
+                name: "id"
+            },
+            {
+                type: "input",
+                message: "What is the email of the employee?",
+                name: "email"
+            },
+            {
+                type: "input",
+                message: "What is your office number?",
+                name: "officeNumber",
+                when: (answers) => answers.employee === "Manager"
+            },
+            {
+                type: "input",
+                message: "What is you Github URL?",
+                name: "github",
+                when: (answers) => answers.employee === "Engineer"
+            },
+            {
+                type: "input",
+                message: "What is the name of your School?",
+                name: "school",
+                when: (answers) => answers.employee === "Intern"
+            },
+            {
+                type: "confirm",
+                message: "Whould you like to add another employee?",
+                name: "add"
+            }
 
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
+        ]).then(function(response){
+            console.log(response);
+            if(response.employee === "Manager"){
+                const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+                teamArr.push(manager);
+            }
+            if(response.employee === "Engineer"){
+                const engineer = new Engineer(response.name, response.id, response.email, response.github);
+                teamArr.push(engineer);
+            }
+            if(response.employee === "Intern"){
+                const intern = new Intern(response.name, response.id, response.email, response.school);
+                teamArr.push(intern);
+            }
+            console.log(teamArr);
 
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
+            if(response.add){
+                addEmployee()  
+            } else {
+                fs.writeFile(outputPath, render(teamArr), (err) => {
+                    if (err) throw err;
+                    console.log('The file has been saved!');
+                });
+            }
+        })
+} 
 
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
+addEmployee();
