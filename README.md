@@ -100,3 +100,6 @@ This project generates a `team.html` page in the `output` directory, that displa
 * Inquirer for CLI user inputs
 * Node for file system packages, path packages, and runing a command line application
 * Trilogy Education Services for project setup
+
+## Badges
+<a href="https://img.shields.io/badge/HTML-16.3%25-red"><img alt="HTML usage" src="https://img.shields.io/badge/HTML-16.325-red"></a> <a href="https://img.shields.io/badge/JavaScript-83.7%25-yellow"><img alt="Javascript usage" src="https://img.shields.io/badge/JavaScript-83.7%25-yellow"></a> <a href="https://img.shields.io/badge/Frameworks-Bootstrap-blue"><img alt="Bootstrap framework" src="https://img.shields.io/badge/Frameworks-Bootstrap-blue"></a> <a href="https://img.shields.io/badge/Backend-Node.js-green"><img alt="Node.js" src="https://img.shields.io/badge/Backend-Node.js-green"></a>
