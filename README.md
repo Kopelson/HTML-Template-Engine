@@ -1,5 +1,4 @@
-# HTML Template Engine
-## Description
+# HTML Template Engine : 
 
 One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, *how* we design our code is just as important as the code itself. This project is focused on building a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, OOP (object oriented programming) uses tests to add confidence that each peice of code is working as expected.
 
